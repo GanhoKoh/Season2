@@ -13,32 +13,42 @@ public class HappySalaryCnsl {
 				" これで単金アップした時の事を考えてスキルアップ！<br>\r\n" +
 				" ****************************************************";
 
+		String engineerRank;
+		int cost;
+
 		System.out.println(greeting);
 
 		//エンジニアランクと単金を受け付ける
-		String engineerRank = inputEngineerRank();
-		int cost = inputCost();
+		engineerRank = inputEngineerRank();
+		cost =inputCost();
 
 		int salary = CalcLogic.calcuSalary(engineerRank, cost);
 
 		//結果出力
 		showResult(salary);
 
-
 	}
 
 	//エンジニアランク入力機能
 	static String inputEngineerRank() {
 
-		System.out.println("あなたのエンジニアランクは？");
+		Scanner sc = new Scanner(System.in);
+		String engineerRank;
 
-		Scanner sc1 = new Scanner(System.in);
-		String engineerRank = sc1.nextLine();
+		do {
+			System.out.println("あなたのエンジニアランクは？");
+			engineerRank = sc.nextLine();
 
-		if(!CalcLogic.validateEngingeerRank(engineerRank)) {
-			System.out.println("入力されたエンジニアランク不正じゃない？");
-			inputEngineerRank();
-		}
+			if(!CalcLogic.validateEngingeerRank(engineerRank)) {
+				System.out.println("エンジニアランクの入力不正だよ？");
+			}
+		} while (!CalcLogic.validateEngingeerRank(engineerRank));
+
+//		エラーになるが面白い動きをする
+//		if(!CalcLogic.validateEngingeerRank(engineerRank)) {
+//			System.out.println("入力されたエンジニアランク不正じゃない？");
+//			inputEngineerRank();
+//		}
 
 		return engineerRank;
 	}
@@ -46,17 +56,27 @@ public class HappySalaryCnsl {
 	//単金入力機能
 	static int inputCost() {
 
-		System.out.println("あなたの単金は？");
-
 		Scanner sc2 = new Scanner(System.in);
-		String cost = sc2.nextLine();
+		String _cost;
 
-		if(!CalcLogic.validateCost(cost)) {
-			System.out.println("入力された単金不正じゃない？");
-			inputCost();
-		}
+		do {
+			System.out.println("あなたの単金は？");
+			_cost = sc2.nextLine();
 
-		return Integer.parseInt(cost);
+			if(!CalcLogic.validateCost(_cost)) {
+				System.out.println("単金の入力不正だよ？");
+			}
+		} while (!CalcLogic.validateCost(_cost));
+
+//		エラーになるが面白い動きをする
+//		if(!CalcLogic.validateCost(_cost)) {
+//			System.out.println("入力された単金不正じゃない？");
+//			inputCost();
+//		}
+
+		int cost = Integer.parseInt(_cost);
+
+		return cost;
 	}
 
 	//結果を出力する機能
