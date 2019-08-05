@@ -45,6 +45,7 @@ public class HappySalaryCnsl {
 		} while (!CalcLogic.validateEngingeerRank(engineerRank));
 
 //		エラーになるが面白い動きをする
+//		再帰的な呼び出しをしようとするが、鏡の世界みたいに結局最初の入力に戻ってしまう。
 //		if(!CalcLogic.validateEngingeerRank(engineerRank)) {
 //			System.out.println("入力されたエンジニアランク不正じゃない？");
 //			inputEngineerRank();
