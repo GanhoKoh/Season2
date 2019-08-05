@@ -21,13 +21,13 @@ public class CalcLogic {
 		}
 	}
 
-	static int calcuSalary(String engineerRank, int cost) {
+	static double calcuSalary(String engineerRank, int cost) {
 		if("A".compareToIgnoreCase(engineerRank) == 0) {
-			return (int) (cost * 0.6);
+			return cost * 0.6;
 		} else if ("B".compareToIgnoreCase(engineerRank) == 0) {
-			return (int) (cost * 0.55);
+			return cost * 0.55;
 		} else {
-			return (int) (cost * 0.5);
+			return cost * 0.5;
 		}
 	}
 

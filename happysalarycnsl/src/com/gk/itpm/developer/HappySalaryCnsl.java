@@ -22,7 +22,7 @@ public class HappySalaryCnsl {
 		engineerRank = inputEngineerRank();
 		cost =inputCost();
 
-		int salary = CalcLogic.calcuSalary(engineerRank, cost);
+		double salary = CalcLogic.calcuSalary(engineerRank, cost);
 
 		//結果出力
 		showResult(salary);
@@ -81,10 +81,10 @@ public class HappySalaryCnsl {
 	}
 
 	//結果を出力する機能
-	static void showResult(int salary) {
+	static void showResult(double salary) {
 		String resultMsg =
 				"あなたの月収は・・・・\r\n" +
-				"%d 万円\r\n" +
+				"%.1f 万円\r\n" +
 				"となります！！";
 
 		System.out.println(String.format(resultMsg, salary));
