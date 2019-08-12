@@ -2,6 +2,7 @@ package com.gk.itpm.developer;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 public class User {
 
@@ -73,14 +74,19 @@ public class User {
 	}
 
 	//コンストラクタ
-	User(LocalDateTime fromLdt) {
+	User (LocalDateTime fromLdt, HashMap tobaccoData) {
 		this.fromLdt = fromLdt;
 		this.fromLd = fromLdt.toLocalDate();
 
 		//現在時刻で強制的に現在日付を作成
-		//先にLocalDateTimeを作成して、そのデータからLocalDateを作成※時間ズレをなくすため
+		//先にLocalDateTimeを作成して、そのデータからLocalDateを作成※2行で済むから
 		this.toLdt = LocalDateTime.now();
 		this.toLd = toLdt.toLocalDate();
+
+		//HashMapコレクションからタバコ情報をセットする
+		this.tobaccoPrice = (int) tobaccoData.get("tobaccoPrice");
+		this.tobaccoNum = (int) tobaccoData.get("tobaccoNum");
+		this.tobaccoPerDayNum = (int) tobaccoData.get("tobaccoPerDayNum");
 	}
 
 }
